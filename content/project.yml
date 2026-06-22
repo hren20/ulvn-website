@@ -39,6 +39,7 @@ authors:
 affiliations:
   - "Sun Yat-sen University"
   - "Insta360 Research"
+affiliation_display: "stacked" # “inline” or "stacked"
 
 links:
   paper: "https://arxiv.org/abs/xxxx.xxxxx"

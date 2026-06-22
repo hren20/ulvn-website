@@ -57,6 +57,16 @@ content:
         type: string
         list: true
 
+      - name: affiliation_display
+        label: Affiliation Display
+        type: select
+        options:
+          values:
+            - name: stacked
+              label: One affiliation per line
+            - name: inline
+              label: Single line separated by spaces
+
       - name: links
         label: Links
         type: object

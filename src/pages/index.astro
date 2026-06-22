@@ -59,6 +59,7 @@ const authorMarker = (author) => {
 const mediaItems = (section) => section.media || [];
 const showAffiliationSuperscripts =
   affiliations.length === 1 || authors.some((author) => author.affiliation || author.affiliation_id || author.sup);
+const affiliationDisplay = project.affiliation_display === 'inline' ? 'inline' : 'stacked';
 ---
 
 <!doctype html>
@@ -97,11 +98,11 @@ const showAffiliationSuperscripts =
                 )}
 
                 {affiliations.length > 0 && (
-                  <div class="is-size-5 publication-authors publication-affiliations">
+                  <div class={`is-size-5 publication-authors publication-affiliations publication-affiliations-${affiliationDisplay}`}>
                     {affiliations.map((affiliation, index) => (
-                      <span class="author-block">
+                      <span class="affiliation-block">
                         {showAffiliationSuperscripts && <sup>{index + 1}</sup>}{affiliation}
-                        {index < affiliations.length - 1 ? ' / ' : ''}
+                        {affiliationDisplay === 'inline' && index < affiliations.length - 1 ? ' ' : ''}
                       </span>
                     ))}
                   </div>

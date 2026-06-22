@@ -188,6 +188,18 @@ sup {
   margin-top: 0.25rem;
 }
 
+.affiliation-block {
+  display: block;
+}
+
+.publication-affiliations-inline .affiliation-block {
+  display: inline-block;
+}
+
+.publication-affiliations-stacked .affiliation-block {
+  display: block;
+}
+
 .publication-venue {
   color: #555555;
   display: inline-block;
