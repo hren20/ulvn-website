@@ -1,0 +1,56 @@
+title: "Your Research Project Title"
+venue: ""
+
+authors:
+  - name: "Author A"
+    url: "https://example.com"
+  - name: "Author B"
+    url: "https://example.com"
+
+affiliations:
+  - "University A / Lab B"
+
+links:
+  paper: "https://arxiv.org/abs/xxxx.xxxxx"
+  arxiv: ""
+  code: "https://github.com/username/repo"
+  video: "https://youtube.com/watch?v=example"
+  poster: ""
+  data: ""
+
+teaser:
+  image: "/images/teaser.svg"
+  video: ""
+  alt: "Project teaser"
+  caption: "One-sentence summary of the project."
+
+abstract: >
+  Write your abstract here. The template supports Markdown, so you can use
+  **emphasis**, links, and short lists when editing this field from Pages CMS.
+
+sections:
+  - title: "Method"
+    body: >
+      Describe your method here. Keep this section concise and use the image
+      field for diagrams, architecture figures, or process overviews.
+    image: "/images/method.svg"
+    image_alt: "Method diagram"
+    caption: "Overview of the proposed method."
+    media: []
+
+  - title: "Results"
+    body: >
+      Summarize results and comparisons here. You can duplicate this section in
+      Pages CMS to add more blocks such as ablations, demos, or qualitative
+      examples.
+    image: "/images/results.svg"
+    image_alt: "Results chart"
+    caption: "Representative quantitative and qualitative results."
+    media: []
+
+bibtex: |
+  @article{yourproject2026,
+    title={Your Research Project Title},
+    author={Author A and Author B},
+    year={2026}
+  }

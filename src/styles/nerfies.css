@@ -1,0 +1,421 @@
+@import url("https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro");
+
+:root {
+  color-scheme: light;
+  --link: hsl(204, 86%, 53%);
+  --text: #4a4a4a;
+  --title: #363636;
+  --dark: #363636;
+  --dark-hover: #292929;
+  --section-bg: #ffffff;
+  --footer-bg: #fafafa;
+  --pre-bg: whitesmoke;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: #ffffff;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  background: #ffffff;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+a {
+  color: var(--link);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+strong,
+b {
+  color: var(--title);
+  font-weight: 700;
+}
+
+sup {
+  font-size: 0.7em;
+  line-height: 0;
+  margin-left: 1px;
+  vertical-align: super;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.container.is-max-desktop {
+  max-width: 960px;
+}
+
+.columns {
+  display: flex;
+  margin-left: -0.75rem;
+  margin-right: -0.75rem;
+  margin-top: -0.75rem;
+}
+
+.columns:last-child {
+  margin-bottom: -0.75rem;
+}
+
+.columns.is-centered {
+  justify-content: center;
+}
+
+.column {
+  display: block;
+  flex: 1 1 0;
+  padding: 0.75rem;
+}
+
+.column.is-full {
+  flex: none;
+  width: 100%;
+}
+
+.column.is-half {
+  flex: none;
+  width: 50%;
+}
+
+.column.is-four-fifths {
+  flex: none;
+  width: 80%;
+}
+
+.column.is-8 {
+  flex: none;
+  width: 66.666666%;
+}
+
+.has-text-centered {
+  text-align: center;
+}
+
+.has-text-justified {
+  text-align: justify;
+}
+
+.hero {
+  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hero-body {
+  flex-grow: 1;
+  flex-shrink: 0;
+  padding: 3rem 1.5rem;
+}
+
+.section {
+  background: var(--section-bg);
+  padding: 3rem 1.5rem;
+}
+
+.title,
+.subtitle {
+  color: var(--title);
+  font-weight: 600;
+  line-height: 1.125;
+  margin: 0;
+  word-break: normal;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.title.is-1 {
+  font-size: 3rem;
+}
+
+.title.is-3 {
+  font-size: 2rem;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.publication-title {
+  font-family: "Google Sans", "Noto Sans", sans-serif;
+  margin-bottom: 1.5rem;
+}
+
+.publication-authors {
+  font-family: "Google Sans", "Noto Sans", sans-serif;
+  line-height: 1.45;
+  margin-bottom: 0.35rem;
+}
+
+.publication-authors a {
+  color: var(--link) !important;
+}
+
+.publication-authors a:hover {
+  text-decoration: underline;
+}
+
+.publication-affiliations {
+  color: var(--text);
+  margin-top: 0.25rem;
+}
+
+.publication-venue {
+  color: #555555;
+  display: inline-block;
+  font-family: "Google Sans", "Noto Sans", sans-serif;
+  font-weight: 700;
+  margin-top: 0.65rem;
+}
+
+.author-block {
+  display: inline-block;
+}
+
+.is-size-5 {
+  font-size: 1.25rem;
+}
+
+.publication-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.link-block a {
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.button {
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  box-shadow: none;
+  display: inline-flex;
+  font-size: 1rem;
+  height: 2.5em;
+  justify-content: center;
+  line-height: 1.5;
+  padding: calc(0.5em - 1px) 1em;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.button:hover {
+  text-decoration: none;
+}
+
+.button.is-normal {
+  font-size: 1rem;
+}
+
+.button.is-rounded {
+  border-radius: 9999px;
+  padding-left: 1.25em;
+  padding-right: 1.25em;
+}
+
+.button.is-dark {
+  background-color: var(--dark);
+  border-color: transparent;
+  color: #ffffff;
+}
+
+.button.is-dark:hover {
+  background-color: var(--dark-hover);
+  color: #ffffff;
+}
+
+.icon {
+  align-items: center;
+  display: inline-flex;
+  height: 1.5rem;
+  justify-content: center;
+  margin-left: -0.1rem;
+  margin-right: 0.45rem;
+  width: 1.5rem;
+}
+
+.teaser {
+  font-family: "Google Sans", "Noto Sans", sans-serif;
+}
+
+.teaser .hero-body {
+  padding-bottom: 3rem;
+  padding-top: 0;
+}
+
+.teaser-media {
+  height: auto;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.teaser-caption {
+  margin-top: 1.25rem;
+}
+
+.teaser-caption p {
+  margin: 0;
+}
+
+.content {
+  color: var(--text);
+}
+
+.content p {
+  margin: 0 0 1em;
+}
+
+.content p:last-child {
+  margin-bottom: 0;
+}
+
+.content ul,
+.content ol {
+  margin: 0 0 1em 1.5em;
+  padding: 0;
+}
+
+.content h1,
+.content h2,
+.content h3,
+.content h4 {
+  color: var(--title);
+  font-weight: 600;
+  line-height: 1.125;
+}
+
+.dnerf {
+  font-variant: small-caps;
+}
+
+.section-figure {
+  margin: 1.5rem auto 0;
+  text-align: center;
+}
+
+.section-figure img {
+  height: auto;
+  margin: 0 auto;
+  width: min(100%, 760px);
+}
+
+.section-figure figcaption {
+  color: var(--text);
+  font-size: 1rem;
+  margin-top: 0.75rem;
+  text-align: center;
+}
+
+.media-grid {
+  margin-top: 1.5rem;
+}
+
+.media-grid .item {
+  overflow: hidden;
+}
+
+.media-grid video,
+.media-grid img {
+  height: auto;
+  width: 100%;
+}
+
+.media-grid p {
+  margin: 0.65rem 0 0;
+}
+
+pre {
+  background-color: var(--pre-bg);
+  color: var(--text);
+  font-size: 0.875em;
+  overflow-x: auto;
+  padding: 1.25rem 1.5rem;
+  white-space: pre;
+  word-wrap: normal;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.footer {
+  background-color: var(--footer-bg);
+  padding: 3rem 1.5rem 6rem;
+}
+
+.footer .content {
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .columns {
+    display: block;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+  }
+
+  .column,
+  .column.is-full,
+  .column.is-half,
+  .column.is-four-fifths,
+  .column.is-8 {
+    width: 100%;
+  }
+
+  .hero-body,
+  .section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .title.is-1 {
+    font-size: 2.35rem;
+  }
+
+  .is-size-5,
+  .subtitle {
+    font-size: 1.08rem;
+  }
+
+  .has-text-justified {
+    text-align: left;
+  }
+}

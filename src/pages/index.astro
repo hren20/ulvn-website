@@ -1,0 +1,224 @@
+---
+import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import { marked } from 'marked';
+import { parse } from 'yaml';
+import '../styles/nerfies.css';
+
+const projectFile = fileURLToPath(new URL('../../content/project.yml', import.meta.url));
+const project = {
+  title: 'Research Project Title',
+  venue: '',
+  authors: [],
+  affiliations: [],
+  links: {},
+  teaser: {},
+  sections: [],
+  bibtex: '',
+  ...parse(readFileSync(projectFile, 'utf8'))
+};
+
+const baseUrl = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+
+const withBase = (path) => {
+  if (!path) return '';
+  if (/^(?:[a-z]+:)?\/\//i.test(path) || path.startsWith('mailto:') || path.startsWith('tel:') || path.startsWith('#')) {
+    return path;
+  }
+
+  return `${baseUrl}${path.startsWith('/') ? path.slice(1) : path}`;
+};
+
+const markdown = (value) => marked.parse(value || '', { async: false });
+const markdownInline = (value) => marked.parseInline(value || '', { async: false });
+const linkHref = (url) => withBase(url);
+const externalAttrs = (url) =>
+  /^(?:https?:)?\/\//i.test(url || '') ? { target: '_blank', rel: 'noreferrer' } : {};
+
+const linkButtons = [
+  { label: 'Paper', url: project.links?.paper, icon: 'fas fa-file-pdf' },
+  { label: 'arXiv', url: project.links?.arxiv, icon: 'ai ai-arxiv' },
+  { label: 'Video', url: project.links?.video, icon: 'fas fa-video' },
+  { label: 'Code', url: project.links?.code, icon: 'fab fa-github' },
+  { label: 'Poster', url: project.links?.poster, icon: 'fas fa-image' },
+  { label: 'Data', url: project.links?.data, icon: 'fas fa-database' }
+].filter((link) => link.url);
+
+const authors = project.authors || [];
+const affiliations = project.affiliations || [];
+const sections = project.sections || [];
+
+const authorMarker = (author) => {
+  const marker = author.affiliation || author.affiliation_id || author.sup;
+  if (marker) return marker;
+  return affiliations.length === 1 ? '1' : '';
+};
+
+const mediaItems = (section) => section.media || [];
+const showAffiliationSuperscripts =
+  affiliations.length === 1 || authors.some((author) => author.affiliation || author.affiliation_id || author.sup);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={project.teaser?.caption || project.abstract || project.title} />
+    <title>{project.title}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <div class="hero-body">
+          <div class="container is-max-desktop">
+            <div class="columns is-centered">
+              <div class="column has-text-centered">
+                <h1 class="title is-1 publication-title">{project.title}</h1>
+
+                {authors.length > 0 && (
+                  <div class="is-size-5 publication-authors" aria-label="Authors">
+                    {authors.map((author, index) => (
+                      <span class="author-block">
+                        {author.url ? (
+                          <a href={author.url} {...externalAttrs(author.url)}>{author.name}</a>
+                        ) : (
+                          <span>{author.name}</span>
+                        )}
+                        {authorMarker(author) && <sup>{authorMarker(author)}</sup>}
+                        {index < authors.length - 1 ? ', ' : ''}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                {affiliations.length > 0 && (
+                  <div class="is-size-5 publication-authors publication-affiliations">
+                    {affiliations.map((affiliation, index) => (
+                      <span class="author-block">
+                        {showAffiliationSuperscripts && <sup>{index + 1}</sup>}{affiliation}
+                        {index < affiliations.length - 1 ? ' / ' : ''}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                {linkButtons.length > 0 && (
+                  <div class="column has-text-centered">
+                    <div class="publication-links" aria-label="Resources">
+                      {linkButtons.map((link) => (
+                        <span class="link-block">
+                          <a class="external-link button is-normal is-rounded is-dark" href={linkHref(link.url)} {...externalAttrs(link.url)}>
+                            <span class="icon"><i class={link.icon}></i></span>
+                            <span>{link.label}</span>
+                          </a>
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {(project.teaser?.video || project.teaser?.image) && (
+        <section class="hero teaser">
+          <div class="container is-max-desktop">
+            <div class="hero-body">
+              {project.teaser.video ? (
+                <video class="teaser-media" src={withBase(project.teaser.video)} poster={withBase(project.teaser.image)} controls playsinline preload="metadata"></video>
+              ) : (
+                <img class="teaser-media" src={withBase(project.teaser.image)} alt={project.teaser.alt || 'Project teaser'} />
+              )}
+              {project.teaser.caption && (
+                <h2 class="subtitle has-text-centered teaser-caption" set:html={markdownInline(project.teaser.caption)} />
+              )}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {project.abstract && (
+        <section class="section">
+          <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+              <div class="column is-four-fifths">
+                <h2 class="title is-3">Abstract</h2>
+                <div class="content has-text-justified markdown-body" set:html={markdown(project.abstract)} />
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {sections.map((section) => (
+        <section class="section">
+          <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+              <div class="column is-full">
+                <h2 class="title is-3">{section.title}</h2>
+                {section.body && (
+                  <div class="content has-text-justified markdown-body" set:html={markdown(section.body)} />
+                )}
+              {section.image && (
+                <figure class="section-figure">
+                  <img src={withBase(section.image)} alt={section.image_alt || section.title} />
+                  {section.caption && <figcaption>{section.caption}</figcaption>}
+                </figure>
+              )}
+              </div>
+            </div>
+
+            {mediaItems(section).length > 0 && (
+              <div class="columns is-centered media-grid">
+                {mediaItems(section).map((item) => (
+                  <div class="column is-half">
+                    <div class="item">
+                      {item.kind === 'video' || item.video ? (
+                        <video src={withBase(item.video || item.file)} autoplay={item.autoplay !== false} muted loop playsinline controls={item.controls === true}></video>
+                      ) : (
+                        <img src={withBase(item.image || item.file)} alt={item.alt || item.caption || section.title} />
+                      )}
+                      {item.caption && <p class="has-text-centered">{item.caption}</p>}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </section>
+      ))}
+
+      {project.bibtex && (
+        <section class="section" id="BibTeX">
+          <div class="container is-max-desktop content">
+            <h2 class="title">BibTeX</h2>
+            <pre><code>{project.bibtex}</code></pre>
+          </div>
+        </section>
+      )}
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content has-text-centered">
+              <p>
+                This website is based on the
+                <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>
+                project page template.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

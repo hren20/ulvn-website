@@ -1,0 +1,176 @@
+media:
+  - name: images
+    label: Images
+    input: public/images
+    output: /images
+    extensions: [jpg, jpeg, png, gif, webp, svg]
+    categories: [image]
+    rename: safe
+  - name: videos
+    label: Videos
+    input: public/videos
+    output: /videos
+    extensions: [mp4, webm, mov]
+    categories: [video]
+    rename: safe
+  - name: files
+    label: Files
+    input: public/files
+    output: /files
+    categories: [document, compressed]
+    rename: safe
+
+content:
+  - name: project
+    label: Project Page
+    type: file
+    path: content/project.yml
+    format: yaml
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+
+      - name: venue
+        label: Venue
+        type: string
+
+      - name: authors
+        label: Authors
+        type: object
+        list: true
+        fields:
+          - name: name
+            label: Name
+            type: string
+            required: true
+          - name: url
+            label: URL
+            type: string
+          - name: affiliation
+            label: Affiliation Superscript
+            type: string
+
+      - name: affiliations
+        label: Affiliations
+        type: string
+        list: true
+
+      - name: links
+        label: Links
+        type: object
+        fields:
+          - name: paper
+            label: Paper URL
+            type: string
+          - name: arxiv
+            label: arXiv URL
+            type: string
+          - name: code
+            label: Code URL
+            type: string
+          - name: video
+            label: Video URL
+            type: string
+          - name: poster
+            label: Poster URL
+            type: string
+          - name: data
+            label: Data URL
+            type: string
+
+      - name: teaser
+        label: Teaser
+        type: object
+        fields:
+          - name: image
+            label: Image
+            type: image
+            options:
+              media: images
+          - name: video
+            label: Video
+            type: file
+            options:
+              media: videos
+              categories: [video]
+          - name: alt
+            label: Alt Text
+            type: string
+          - name: caption
+            label: Caption
+            type: text
+
+      - name: abstract
+        label: Abstract
+        type: rich-text
+        options:
+          format: markdown
+          media: images
+          switcher: true
+
+      - name: sections
+        label: Sections
+        type: object
+        list: true
+        fields:
+          - name: title
+            label: Section Title
+            type: string
+            required: true
+          - name: body
+            label: Body
+            type: rich-text
+            options:
+              format: markdown
+              media: images
+              switcher: true
+          - name: image
+            label: Image
+            type: image
+            options:
+              media: images
+          - name: image_alt
+            label: Image Alt Text
+            type: string
+          - name: caption
+            label: Caption
+            type: text
+          - name: media
+            label: Media Grid
+            type: object
+            list: true
+            fields:
+              - name: kind
+                label: Kind
+                type: select
+                options:
+                  values: [image, video]
+              - name: image
+                label: Image
+                type: image
+                options:
+                  media: images
+              - name: video
+                label: Video
+                type: file
+                options:
+                  media: videos
+                  categories: [video]
+              - name: caption
+                label: Caption
+                type: text
+              - name: alt
+                label: Alt Text
+                type: string
+              - name: autoplay
+                label: Autoplay Video
+                type: boolean
+              - name: controls
+                label: Show Video Controls
+                type: boolean
+
+      - name: bibtex
+        label: BibTeX
+        type: code
