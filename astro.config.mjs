@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 
 const [ownerFromRepository, nameFromRepository] =
   (process.env.GITHUB_REPOSITORY || '').split('/');
-const repositoryOwner = ownerFromRepository || 'username';
+const repositoryOwner = ownerFromRepository || 'hren20';
 const repositoryName = nameFromRepository || 'project-name';
 
 const isGithubActions = process.env.GITHUB_ACTIONS === 'true';
