@@ -1,14 +1,32 @@
-title: "Your Research Project Title"
+title: "Unordered Landmark Visual Navigation"
 venue: ""
 
 authors:
-  - name: "Author A"
-    url: "https://example.com"
-  - name: "Author B"
-    url: "https://example.com"
+  - name: "Hao Ren"
+    url: "https://hren20.github.io/"
+  - name: "Junzhe Zhu"
+    # url: "https://example.com"
+  - name: "Yihan Li"
+    url: "https://github.com/HY-LiYihan"
+  - name: "Zetong Bi"
+    url: "https://scholar.google.com/citations?user=JJutrU4AAAAJ&hl=zh-CN"
+  - name: "Le Zheng"
+    url: "https://lezheng-x.github.io/"
+  - name: "Zhi Li"
+    # url: "https://example.com"
+  - name: "Yiqing Yuan"
+    url: "https://scholar.google.com/citations?user=7MIXN0QAAAAJ&hl=zh-CN"
+  - name: "Zhaoliang Wan"
+    url: "https://wan-zhaoliang.vercel.app/"
+  - name: "Dizhe Zhang"
+    # url: "https://example.com"
+  - name: "Lu Qi"
+    url: "http://luqi.info/"
+  - name: "Hui Cheng"
+    url: "https://cse.sysu.edu.cn/teacher/ChengHui"
 
 affiliations:
-  - "University A / Lab B"
+  - "Sun Yat-sen University    Insta360 Research"
 
 links:
   paper: "https://arxiv.org/abs/xxxx.xxxxx"
