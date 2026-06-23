@@ -49,14 +49,14 @@ sections:
   - title: Method
     body: Describe your method here. Keep this section concise and use the image
       field for diagrams, architecture figures, or process overviews.
-    image: /images/method.svg
+    image: /images/pipline.png
     image_alt: Method diagram
     caption: Overview of the proposed method.
   - title: Results
     body: Summarize results and comparisons here. You can duplicate this section in
       Pages CMS to add more blocks such as ablations, demos, or qualitative
       examples.
-    image: /images/results.svg
+    image: /images/ravelvisual.png
     image_alt: Results chart
     caption: Representative quantitative and qualitative results.
 bibtex: |
