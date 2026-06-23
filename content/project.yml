@@ -42,12 +42,11 @@ teaser:
   image: /images/teaserulvn.png
   alt: Project teaser
   caption: One-sentence summary of the project.
-abstract: >-
-  Image-goal navigation is a fundamental capability for embodied AI, yet its
-  practical deployment is strained by strong prior assumptions. Existing methods
-  predominantly rely on temporally ordered video streams or auxiliary sensors
-  (e.g., depth, LiDAR) to maintain spatial consistency. These sequential and
-  multimodal dependencies severely restrict scalability, especially when
+abstract: Image-goal navigation is a fundamental capability for embodied AI, yet
+  its practical deployment is strained by strong prior assumptions. Existing
+  methods predominantly rely on temporally ordered video streams or auxiliary
+  sensors (e.g., depth, LiDAR) to maintain spatial consistency. These sequential
+  and multimodal dependencies severely restrict scalability, especially when
   deploying robots using crowd-sourced or pre-recorded unordered image
   collections. When temporal priors are removed, current methods struggle with
   severe perceptual aliasing, noisy associations, and catastrophic mapping
@@ -63,9 +62,6 @@ abstract: >-
   and real-world deployments demonstrate that ULVN significantly outperforms
   state-of-the-art methods. Datasets and evaluation pipelines will be
   open-sourced to foster research in this setting.
-
-  Write your abstract here. The template supports Markdown, so you can use
-  **emphasis**, links, and short lists when editing this field from Pages CMS.
 sections:
   - title: Method
     body: Describe your method here. Keep this section concise and use the image
