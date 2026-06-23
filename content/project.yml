@@ -1,84 +1,64 @@
-title: "Unordered Landmark Visual Navigation"
-venue: ""
-
+title: Unordered Landmark Visual Navigation
 authors:
-  - name: "Hao Ren"
-    url: "https://hren20.github.io/"
+  - name: Hao Ren
+    url: https://hren20.github.io/
     affiliation: "1"
-  - name: "Junzhe Zhu"
-    # url: "https://example.com"
+  - name: Junzhe Zhu
     affiliation: "1"
-  - name: "Yihan Li"
-    url: "https://github.com/HY-LiYihan"
+  - name: Yihan Li
+    url: https://github.com/HY-LiYihan
     affiliation: "1"
-  - name: "Zetong Bi"
-    url: "https://scholar.google.com/citations?user=JJutrU4AAAAJ&hl=zh-CN"
+  - name: Zetong Bi
+    url: https://scholar.google.com/citations?user=JJutrU4AAAAJ&hl=zh-CN
     affiliation: "1"
-  - name: "Le Zheng"
-    url: "https://lezheng-x.github.io/"
+  - name: Le Zheng
+    url: https://lezheng-x.github.io/
     affiliation: "1"
-  - name: "Zhi Li"
-    # url: "https://example.com"
+  - name: Zhi Li
     affiliation: "1"
-  - name: "Yiqing Yuan"
-    url: "https://scholar.google.com/citations?user=7MIXN0QAAAAJ&hl=zh-CN"
+  - name: Yiqing Yuan
+    url: https://scholar.google.com/citations?user=7MIXN0QAAAAJ&hl=zh-CN
     affiliation: "1"
-  - name: "Zhaoliang Wan"
-    url: "https://wan-zhaoliang.vercel.app/"
+  - name: Zhaoliang Wan
+    url: https://wan-zhaoliang.vercel.app/
     affiliation: "2"
-  - name: "Dizhe Zhang"
-    # url: "https://example.com"
+  - name: Dizhe Zhang
     affiliation: "2"
-  - name: "Lu Qi"
-    url: "http://luqi.info/"
+  - name: Lu Qi
+    url: http://luqi.info/
     affiliation: "2"
-  - name: "Hui Cheng"
-    url: "https://cse.sysu.edu.cn/teacher/ChengHui"
+  - name: Hui Cheng
+    url: https://cse.sysu.edu.cn/teacher/ChengHui
     affiliation: "1"
-
 affiliations:
-  - "Sun Yat-sen University"
-  - "Insta360 Research"
-affiliation_display: "stacked" # “inline” or "stacked"
-
+  - Sun Yat-sen University
+  - Insta360 Research
+affiliation_display: stacked
 links:
-  paper: "https://arxiv.org/abs/xxxx.xxxxx"
-  arxiv: ""
-  code: "https://github.com/username/repo"
-  video: "https://youtube.com/watch?v=example"
-  poster: ""
-  data: ""
-
+  paper: https://arxiv.org/abs/xxxx.xxxxx
+  code: https://github.com/username/repo
+  video: https://youtube.com/watch?v=example
 teaser:
-  image: "/images/teaser.svg"
-  video: ""
-  alt: "Project teaser"
-  caption: "One-sentence summary of the project."
-
-abstract: >
-  Write your abstract here. The template supports Markdown, so you can use
-  **emphasis**, links, and short lists when editing this field from Pages CMS.
-
+  image: /images/teaserulvn.png
+  alt: Project teaser
+  caption: One-sentence summary of the project.
+abstract: Write your abstract here. The template supports Markdown, so you can
+  use **emphasis**, links, and short lists when editing this field from Pages
+  CMS.
 sections:
-  - title: "Method"
-    body: >
-      Describe your method here. Keep this section concise and use the image
+  - title: Method
+    body: Describe your method here. Keep this section concise and use the image
       field for diagrams, architecture figures, or process overviews.
-    image: "/images/method.svg"
-    image_alt: "Method diagram"
-    caption: "Overview of the proposed method."
-    media: []
-
-  - title: "Results"
-    body: >
-      Summarize results and comparisons here. You can duplicate this section in
+    image: /images/method.svg
+    image_alt: Method diagram
+    caption: Overview of the proposed method.
+  - title: Results
+    body: Summarize results and comparisons here. You can duplicate this section in
       Pages CMS to add more blocks such as ablations, demos, or qualitative
       examples.
-    image: "/images/results.svg"
-    image_alt: "Results chart"
-    caption: "Representative quantitative and qualitative results."
-    media: []
-
+    image: /images/results.svg
+    image_alt: Results chart
+    caption: Representative quantitative and qualitative results.
 bibtex: |
   @article{yourproject2026,
     title={Your Research Project Title},
