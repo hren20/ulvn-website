@@ -65,8 +65,7 @@ abstract: >-
   open-sourced to foster research in this setting.
 
   Write your abstract here. The template supports Markdown, so you can use
-  **emphasis**, links, and short lists when editing this field from Pages
-  CMS.test 
+  **emphasis**, links, and short lists when editing this field from Pages CMS.
 sections:
   - title: Method
     body: Describe your method here. Keep this section concise and use the image
