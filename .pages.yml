@@ -99,11 +99,13 @@ content:
             type: image
             options:
               media: images
+              path: public/images
           - name: video
             label: Video
             type: file
             options:
               media: videos
+              path: public/videos
               categories: [video]
           - name: alt
             label: Alt Text
@@ -118,6 +120,7 @@ content:
         options:
           format: markdown
           media: images
+          path: public/images
           switcher: true
 
       - name: sections
@@ -135,12 +138,14 @@ content:
             options:
               format: markdown
               media: images
+              path: public/images
               switcher: true
           - name: image
             label: Image
             type: image
             options:
               media: images
+              path: public/images
           - name: image_alt
             label: Image Alt Text
             type: string
@@ -162,11 +167,13 @@ content:
                 type: image
                 options:
                   media: images
+                  path: public/images
               - name: video
                 label: Video
                 type: file
                 options:
                   media: videos
+                  path: public/videos
                   categories: [video]
               - name: caption
                 label: Caption
