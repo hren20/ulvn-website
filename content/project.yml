@@ -44,7 +44,7 @@ teaser:
   caption: One-sentence summary of the project.
 abstract: Write your abstract here. The template supports Markdown, so you can
   use **emphasis**, links, and short lists when editing this field from Pages
-  CMS.
+  CMS.test
 sections:
   - title: Method
     body: Describe your method here. Keep this section concise and use the image
