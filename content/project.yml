@@ -42,9 +42,31 @@ teaser:
   image: /images/teaserulvn.png
   alt: Project teaser
   caption: One-sentence summary of the project.
-abstract: "Write your abstract here. The template supports Markdown, so you can
-  use **emphasis**, links, and short lists when editing this field from Pages
-  CMS.test "
+abstract: >-
+  Image-goal navigation is a fundamental capability for embodied AI, yet its
+  practical deployment is strained by strong prior assumptions. Existing methods
+  predominantly rely on temporally ordered video streams or auxiliary sensors
+  (e.g., depth, LiDAR) to maintain spatial consistency. These sequential and
+  multimodal dependencies severely restrict scalability, especially when
+  deploying robots using crowd-sourced or pre-recorded unordered image
+  collections. When temporal priors are removed, current methods struggle with
+  severe perceptual aliasing, noisy associations, and catastrophic mapping
+  failures. To address this underexplored challenge, we propose Unordered
+  Landmark Visual Navigation (ULVN), a unified RGB-only framework free from
+  temporal and odometric priors. ULVN systematically mitigates error
+  accumulation by integrating mapping, localization, and planning. Specifically,
+  it constructs a robust 2D topological map directly from unstructured images
+  via calibrated geometric verification and maximum spanning forest refinement.
+  For closed-loop execution, ULVN abandons sequential heuristics, utilizing a
+  graph-based belief propagation filter with entropy-adaptive fusion for global
+  localization and dynamic subgoal planning. Extensive experiments in simulation
+  and real-world deployments demonstrate that ULVN significantly outperforms
+  state-of-the-art methods. Datasets and evaluation pipelines will be
+  open-sourced to foster research in this setting.
+
+  Write your abstract here. The template supports Markdown, so you can use
+  **emphasis**, links, and short lists when editing this field from Pages
+  CMS.test 
 sections:
   - title: Method
     body: Describe your method here. Keep this section concise and use the image
