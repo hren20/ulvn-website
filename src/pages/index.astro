@@ -80,6 +80,9 @@ const affiliationDisplay = project.affiliation_display === 'inline' ? 'inline' :
             <div class="columns is-centered">
               <div class="column has-text-centered">
                 <h1 class="title is-1 publication-title">{project.title}</h1>
+                {project.venue && (
+                  <div class="publication-venue" set:html={markdownInline(project.venue)} />
+                )}
 
                 {authors.length > 0 && (
                   <div class="is-size-5 publication-authors" aria-label="Authors">
