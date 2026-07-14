@@ -5,6 +5,7 @@ authors:
     url: https://hren20.github.io/
     affiliation: "1"
   - name: Junzhe Zhu
+    url: https://openreview.net/profile?id=%7EJunzhe_Zhu2
     affiliation: "1"
   - name: Yihan Li
     url: https://github.com/HY-LiYihan
@@ -16,6 +17,7 @@ authors:
     url: https://lezheng-x.github.io/
     affiliation: "1"
   - name: Zhi Li
+    url: https://openreview.net/profile?id=~Zhi_Li29
     affiliation: "1"
   - name: Yiqing Yuan
     url: https://scholar.google.com/citations?user=7MIXN0QAAAAJ&hl=zh-CN
@@ -24,6 +26,7 @@ authors:
     url: https://wan-zhaoliang.vercel.app/
     affiliation: "2"
   - name: Dizhe Zhang
+    url: https://openreview.net/profile?id=~Dizhe_Zhang1
     affiliation: "2"
   - name: Lu Qi
     url: http://luqi.info/
@@ -37,43 +40,43 @@ affiliations:
 affiliation_display: stacked
 links:
   paper: /files/ulvn-eccv-2026.pdf
-  video: https://youtube.com/watch?v=example
   code: https://github.com/hren20/ulvn-website
+  video: https://youtube.com/watch?v=example
 teaser:
   image: /images/teaserulvn.png
-  alt: Overview of unordered landmark visual navigation from image collections to RGB-only planning and replanning
+  alt: Overview of unordered landmark visual navigation from image collections to
+    RGB-only planning and replanning
   caption: >
-    ULVN builds a navigable topological graph directly from unordered RGB images,
-    then performs vision-only localization, planning, and dynamic replanning without
-    odometry, depth, LiDAR, or temporal capture priors.
-abstract: >
-  Image-goal navigation is a fundamental capability for embodied AI, yet most
-  existing systems rely on temporally ordered video streams, odometry, depth, or
-  LiDAR to preserve spatial consistency. These assumptions restrict deployment
-  when robots must operate from crowd-sourced or pre-recorded unordered image
-  collections. We propose **Unordered Landmark Visual Navigation (ULVN)**, a
-  unified RGB-only framework that integrates mapping, localization, and planning
-  without temporal or multimodal priors. ULVN constructs a robust 2D topological
-  map from unstructured images through calibrated visual place retrieval,
-  geometric verification, maximum spanning forest refinement, and loop
-  reinsertion. During closed-loop execution, a graph-based belief propagation
-  localization filter uses entropy-adaptive fusion to track the robot under
-  perceptual ambiguity, while belief-aware subgoal search plans and replans over
-  the graph. Experiments in simulation and real-world robot deployments show
-  that ULVN substantially improves mapping quality, localization robustness, and
-  navigation success over strong baselines.
+    ULVN builds a navigable topological graph directly from unordered RGB
+    images, then performs vision-only localization, planning, and dynamic
+    replanning without odometry, depth, LiDAR, or temporal capture priors.
+abstract: Image-goal navigation is a fundamental capability for embodied AI, yet
+  most existing systems rely on temporally ordered video streams, odometry,
+  depth, or LiDAR to preserve spatial consistency. These assumptions restrict
+  deployment when robots must operate from crowd-sourced or pre-recorded
+  unordered image collections. We propose **Unordered Landmark Visual Navigation
+  (ULVN)**, a unified RGB-only framework that integrates mapping, localization,
+  and planning without temporal or multimodal priors. ULVN constructs a robust
+  2D topological map from unstructured images through calibrated visual place
+  retrieval, geometric verification, maximum spanning forest refinement, and
+  loop reinsertion. During closed-loop execution, a graph-based belief
+  propagation localization filter uses entropy-adaptive fusion to track the
+  robot under perceptual ambiguity, while belief-aware subgoal search plans and
+  replans over the graph. Experiments in simulation and real-world robot
+  deployments show that ULVN substantially improves mapping quality,
+  localization robustness, and navigation success over strong baselines.
 sections:
   - title: Method
-    body: >
+    body: >-
       ULVN contains three coupled components.
 
 
-      **RAVEL** converts unordered images into a reliable landmark graph. It uses
-      visual place retrieval for high-recall candidate discovery, calibrates
-      verification thresholds from the data, verifies local geometry with feature
-      inliers, extracts a maximum spanning forest to keep the strongest
-      navigation backbone, and reinserts strong loop closures to preserve useful
-      cyclic structure.
+      **RAVEL** converts unordered images into a reliable landmark graph. It
+      uses visual place retrieval for high-recall candidate discovery,
+      calibrates verification thresholds from the data, verifies local geometry
+      with feature inliers, extracts a maximum spanning forest to keep the
+      strongest navigation backbone, and reinserts strong loop closures to
+      preserve useful cyclic structure.
 
 
       **BPL** performs odometry-free localization on the resulting 2D graph. It
@@ -83,22 +86,24 @@ sections:
       more heavily on topology.
 
 
-      **BASS** turns the belief state into closed-loop navigation. It anchors the
-      start and goal images on the graph, searches for the widest path whose
+      **BASS** turns the belief state into closed-loop navigation. It anchors
+      the start and goal images on the graph, searches for the widest path whose
       weakest visual transition is maximized, sends sequential landmark subgoals
       to a local visual planner, and triggers replanning when the belief moves
       away from the intended route.
     image: /images/pipline.png
-    image_alt: ULVN pipeline with RAVEL graph construction, BPL localization, and BASS planning
-    caption: ULVN integrates graph construction, belief propagation localization, and belief-aware subgoal search.
+    image_alt: ULVN pipeline with RAVEL graph construction, BPL localization, and
+      BASS planning
+    caption: ULVN integrates graph construction, belief propagation localization,
+      and belief-aware subgoal search.
   - title: Results
-    body: >
+    body: >-
       On GRScenes, RAVEL achieves the strongest topological graph construction
       performance among the evaluated baselines, reaching **0.7104 precision**,
       **0.7656 recall**, **0.7365 F1**, and **0.9970 accuracy**. Compared with
       top-k retrieval and temporal-distance proxies, the calibrated geometric
-      verification plus MSF refinement provides a better precision-recall balance
-      for unordered maps.
+      verification plus MSF refinement provides a better precision-recall
+      balance for unordered maps.
 
 
       For global localization, BPL achieves **95.49%** accuracy in the global
@@ -116,16 +121,17 @@ sections:
       recovery from off-route execution.
     image: /images/ravelvisual.png
     image_alt: Descriptor and geometric verification correlations used to motivate RAVEL
-    caption: VPR-trained descriptors correlate more strongly with geometric consistency than generic visual features, supporting retrieval before geometric verification.
+    caption: VPR-trained descriptors correlate more strongly with geometric
+      consistency than generic visual features, supporting retrieval before
+      geometric verification.
   - title: Real-World Deployment
-    body: >
-      ULVN was deployed on a Diablo wheeled robot equipped with an Azure Kinect
+    body: ULVN was deployed on a Diablo wheeled robot equipped with an Azure Kinect
       camera and an NVIDIA Jetson Orin. In representative real-world trials, the
-      robot followed a planned visual landmark route, detected physical deviation
-      through the BPL belief state, and used BASS to replan from the off-route
-      node to the goal. This validates the sim-to-real viability of RGB-only,
-      odometry-free navigation from unordered landmarks.
-bibtex: |
+      robot followed a planned visual landmark route, detected physical
+      deviation through the BPL belief state, and used BASS to replan from the
+      off-route node to the goal. This validates the sim-to-real viability of
+      RGB-only, odometry-free navigation from unordered landmarks.
+bibtex: >
   @inproceedings{ren2026ulvn,
     title={Unordered Landmark Visual Navigation},
     author={Ren, Hao and Zhu, Junzhe and Li, Yihan and Bi, Zetong and Zheng, Le and Li, Zhi and Yuan, Yiqing and Wan, Zhaoliang and Zhang, Dizhe and Qi, Lu and Cheng, Hui},
