@@ -66,6 +66,22 @@ abstract: Image-goal navigation is a fundamental capability for embodied AI, yet
   deployments show that ULVN substantially improves mapping quality,
   localization robustness, and navigation success over strong baselines.
 sections:
+  - title: Effect of Temporal Order on Scene Reconstruction
+    body: >+
+      We compare VGGT reconstructions with and without temporal order to assess
+      its dependence on sequential priors. Without temporal order, the
+      reconstruction is fragmented and noisy, whereas temporal ordering produces
+      a more coherent and geometrically consistent scene structure.
+
+    image: /images/temporalorder.jpeg
+    image_alt: "Side-by-side comparison of VGGT scene reconstructions: the left
+      panel shows a chaotic, fragmented reconstruction without temporal order,
+      and the right panel shows a more coherent reconstruction with temporal
+      order."
+    caption: Temporal ordering substantially improves VGGT reconstruction quality;
+      without sequential priors, the recovered structure becomes noisy and
+      inconsistent, highlighting the difficulty of handling unordered RGB
+      images.
   - title: Method
     body: >-
       ULVN contains three coupled components.
