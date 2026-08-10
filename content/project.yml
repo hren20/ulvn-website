@@ -119,11 +119,71 @@ sections:
       **68.1% success rate** and **0.8398 SPL**. The results indicate that
       lightweight topological memory reduces myopic oscillation and supports
       recovery from off-route execution.
+  - title: Global Descriptors as Proxies for Geometric Verification
+    body: We evaluate whether global descriptors can efficiently approximate costly
+      geometric verification. On CARLA data, ResNet, DINOv2, and ViNT show weak
+      or non-linear correlations with LightGlue+RANSAC geometric scores, while
+      the VPR-trained MegaLoc exhibits a strong correlation, making it a
+      reliable proxy for fast candidate retrieval.
     image: /images/ravelvisual.png
-    image_alt: Descriptor and geometric verification correlations used to motivate RAVEL
-    caption: VPR-trained descriptors correlate more strongly with geometric
-      consistency than generic visual features, supporting retrieval before
+    image_alt: Affinity matrices and correlation plots comparing ResNet, DINOv2,
+      ViNT, MegaLoc, LightGlue, and LightGlue+RANSAC scores on CARLA image
+      pairs.
+    caption: MegaLoc achieves substantially stronger correlation with geometric
+      consistency than general-purpose or temporal features, demonstrating the
+      importance of VPR-trained descriptors for efficient retrieval before
       geometric verification.
+  - title: Mapping Performance Evaluation
+    body: We compare RAVEL with retrieval-based baselines on GRScenes. Increasing
+      Top-k improves recall but substantially reduces precision, while RAVEL
+      achieves a better balance through structural verification, obtaining the
+      highest precision, F1-score, and accuracy.
+    image: /images/ravelresults.jpeg
+    image_alt: Comparison of precision, recall, F1-score, and accuracy for VGGT,
+      PlaceNav, ViNT, and RAVEL on GRScenes.
+    caption: RAVEL achieves the best overall mapping performance, with the highest
+      F1-score of 0.7365 and accuracy of 0.9970.
+  - title: Robustness of RAVEL to Visual Perturbations
+    body: We evaluate mapping robustness under lighting changes, noise, and motion
+      blur. Retrieval-based methods suffer substantial precision and F1
+      degradation, whereas RAVEL remains robust due to geometric verification
+      and global structural constraints.
+    image: /images/ravelrobust.jpeg
+    image_alt: Robustness comparison of RAVEL, CosPlace, and ViNT under visual
+      noise, reporting precision, recall, F1-score, and accuracy.
+    caption: RAVEL shows the strongest robustness to visual perturbations, with only
+      a 6.56% drop in F1-score while maintaining 0.9963 accuracy.
+  - title: Global Localization Performance
+    body: We compare BPL with MegaLoc, ViNT, and JIST on global localization. BPL
+      achieves the highest accuracy on both overall and difficult trajectories,
+      with particularly strong performance on challenging paths containing
+      turns, intersections, and loops.
+    image: /images/bplresults.jpeg
+    image_alt: Comparison of localization success, failure, and accuracy for BPL,
+      MegaLoc, ViNT, and JIST under all and difficult-path scenarios.
+    caption: BPL achieves 95.49% overall accuracy and 93.99% on difficult paths,
+      consistently outperforming competing localization methods.
+  - title: Robustness to Perceptual Degradation
+    body: We evaluate localization under viewpoint shifts, image noise, and
+      structural cropping across four datasets. BPL consistently outperforms
+      MegaLoc, JIST, and ViNT, maintaining high and stable accuracy under all
+      degradation conditions.
+    image: /images/bplrobust.jpeg
+    image_alt: Localization accuracy of MegaLoc, JIST, ViNT, and BPL under rotation,
+      Gaussian noise, Poisson noise, and cropping perturbations.
+    caption: BPL achieves the best robustness across all visual degradations, with
+      an average localization accuracy of 0.930 ± 0.040.
+  - title: Navigation Performance Evaluation
+    body: We compare ULVN with end-to-end baselines and different local planner
+      variants. ULVN consistently improves navigation performance, with NoMaD
+      achieving the highest success rate and lowest collision count, while ViNT
+      achieves the best SPL.
+    image: /images/bassresults.jpeg
+    image_alt: Comparison of success rate, average collisions, and SPL for
+      Uni-Navid, UniGoal, and ULVN variants with ViNT and NoMaD on GRScenes.
+    caption: ULVN+NoMaD achieves the highest success rate of 71.9% and lowest
+      average collisions of 0.42, while ULVN+ViNT obtains the best SPL of
+      0.8398.
   - {}
   - title: Real-World Deployment
     body: ULVN was deployed on a Diablo wheeled robot equipped with an Azure Kinect
