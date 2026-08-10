@@ -39,7 +39,8 @@ affiliations:
   - Insta360 Research, Shenzhen, China
 affiliation_display: stacked
 links:
-  paper: /files/ulvn-eccv-2026.pdf
+  paper: https://arxiv.org/pdf/2608.06833
+  arxiv: https://arxiv.org/pdf/2608.06833
   code: https://github.com/hren20/ulvn-website
   video: https://youtube.com/watch?v=example
 teaser:
