@@ -124,6 +124,7 @@ sections:
     caption: VPR-trained descriptors correlate more strongly with geometric
       consistency than generic visual features, supporting retrieval before
       geometric verification.
+  - {}
   - title: Real-World Deployment
     body: ULVN was deployed on a Diablo wheeled robot equipped with an Azure Kinect
       camera and an NVIDIA Jetson Orin. In representative real-world trials, the
@@ -131,10 +132,10 @@ sections:
       deviation through the BPL belief state, and used BASS to replan from the
       off-route node to the goal. This validates the sim-to-real viability of
       RGB-only, odometry-free navigation from unordered landmarks.
-bibtex: >
-  @inproceedings{ren2026ulvn,
+bibtex: >-
+  @article{ren2026ulvn,
     title={Unordered Landmark Visual Navigation},
     author={Ren, Hao and Zhu, Junzhe and Li, Yihan and Bi, Zetong and Zheng, Le and Li, Zhi and Yuan, Yiqing and Wan, Zhaoliang and Zhang, Dizhe and Qi, Lu and Cheng, Hui},
-    booktitle={European Conference on Computer Vision},
+    journal={arXiv preprint arXiv:2608.06833},
     year={2026}
   }
